@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+   modified by: Bobby Sherman
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: "Open Sans", Verdana, Geneva, Tahoma, sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol, ul{
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+input, textarea {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+
+/* ---------- Global Styles ---------- */
+
+h1 {
+	text-align: center;
+	font-size: 300%;
+	font-weight: var(--smi);
+	padding: 10%;
+}
+
+h2 {
+	text-align: center;
+	font-weight: var(--smi);
+	font-size: 150%;
+	padding: 10%;
+}
+
+h3 {
+	font-weight: var(--smi);
+	font-size: 125%;
+}
+
+h4 {
+	font-weight: var(--smi);
+	margin-bottom: 10px;
+}
+
+p {
+	font-weight: var(--nrm);
+	color: var(--black);
+}
+
+.btn {
+	display: inline-block;
+	background-color: var(--blue);
+	margin: 10px 0;
+	padding: 10px 12px;
+	color: var(--white);
+	font-weight: var(--smi);
+}
+
+
+/* Variables */
+:root {
+	/* Colors */
+	--white: hsl(0, 0%, 100%);
+	--blue: hsl(186, 85%, 46%);
+	--teal: hsl(180, 85%, 46%);
+	--grey: hsl(0, 0%, 87%);
+	--black: hsl(0, 0%, 0%);
+
+	/* Font Weights */
+	--lt: 300;
+	--nrm: 400;
+	--med: 500;
+	--smi: 600;
+	--bld: 700;
+}
+
+/* -------------------- Mobile -------------------- */
+@media (max-width: 450px) {
+	/* ---------- Mobile Global ---------- */
+	/* Header + Nav */
+	.head-cta-logo, .head-nbr {display: none;}
+
+	#header {
+		grid-area: header;
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		height: 75px;
+		padding: 2%;
+		z-index: 100;
+	}
+
+	.logo-a {
+		padding: 5px;
+	}
+
+	.head-logo {
+		height: 40px;
+	}
+
+	nav {
+		padding: 5px;
+	}
+
+	/* 	https://www.youtube.com/watch?v=XsvvSRN9DyA -- XO PIXEL 
+		Used as a base for building a semantic nav
+	*/
+	#menu-icon {
+		background-image: url(../icon/menu_sprite.svg);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: cover;
+		display: block;
+		height: 40px;
+		width: 40px;
+	}
+
+	nav ul {
+		display: none;
+		position: absolute;
+		background: var(--white);
+		top: 75px;
+		right: 0px;
+		width: 100%;
+		height: 100%;
+		padding-top: 25%;
+	}
+
+	nav:hover ul {
+		display: block;
+	}
+
+	.nav-li {
+		padding: 30px 0;
+		list-style: none;
+		text-align: center;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		color: var(--black);
+		font-weight: var(--bld);
+		font-size: 250%;
+	}
+
+	.nav-link:hover {
+		background-image: url(../background/blue-box.svg);
+		background-repeat: no-repeat;
+		background-size: 325px;
+		background-position: bottom;
+	}
+
+	.home-link, .service-link, .contact-link {
+		background-image: url(../background/blue-box.svg);
+		background-repeat: no-repeat;
+		background-size: 325px;
+		background-position: bottom;
+	}
+
+	body {
+		display: grid;
+		grid-template-areas: 
+		"header"
+		"main"
+		"footer"
+		;
+	}
+
+	footer {
+		grid-area: footer;
+		background-color: var(--black);
+		display: grid;
+		grid-row-gap: 10px;
+		padding: 5%;
+		grid-template-rows: .5fr .5fr 1fr;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 
+		"ft-logo ft-social"
+		". ft-info"
+		"ft-btm ft-btm"
+		;
+	}
+
+	footer p, footer a {
+		color: var(--white);
+		font-size: 80%;
+	}
+
+	footer > img {
+		grid-area: ft-logo;
+		align-self: end;
+		width: 150px;
+	}
+
+	footer > ul {
+		grid-area: ft-social;
+		justify-self: end;
+		align-self: end;
+	}
+
+	footer > ul > li {
+		display: inline;
+		margin-left: 10px;
+	}
+
+	/* https://css-tricks.com/spriting-img/ -- Robin Rendle (Feb 6, 2015) */
+	.ig {
+		object-fit: cover; /* modified */
+		object-position: 0 0;
+		width: 40px;
+		height: 40px;
+	}
+
+	.fb {
+		object-fit: cover; /* modified */
+		object-position: 0 0;
+		width: 20px;
+		height: 39.5px;
+	}
+
+	footer address {
+		grid-area: ft-info;
+		text-align: right;
+	}
+
+	footer address a {
+		display: block;
+		padding: 5px 0;
+	}
+
+	footer section {
+		grid-area: ft-btm;
+		text-align: center;
+		align-self: end;
+	}
+
+	/* -------------------- Home - start -------------------- */
+	#home {
+		grid-template-rows: 75px 250px 3fr 200px;
+		grid-template-areas: 
+		"header"
+		"head-cta"
+		"main"
+		"footer"
+		;
+	}
+
+	#head-cta {
+		grid-area: 1 / 1 / 3 / 2;
+		z-index: 1;
+		background-image: 
+			linear-gradient(
+				rgba(0, 0, 0, .2),
+				rgba(0, 0, 0, .2)
+			),
+			url(../pic/room.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 4%;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.head-p {
+		font-size: 110%;
+		color: var(--white);
+	}
+
+	#hm-main {
+		grid-area: main;
+		display: grid;
+		grid-template-rows: .75fr .5fr 2fr .75fr .25fr;
+		grid-template-areas: 
+		"process"
+		"workers"
+		"service"
+		"review"
+		"cta"
+		;
+	}
+
+	/* ---------- home - process ---------- */
+	#process {
+		grid-area: process;
+		display: grid;
+		grid-template-rows: 1fr 4fr;
+		padding-bottom: 10%;
+	}
+
+	#process h2 {
+		align-self: center;
+	}
+
+	#process article {
+		display: grid;
+		grid-template-rows: repeat(5, 1fr);
+		grid-template-columns: 1fr;
+		grid-row-gap: 10px;
+		background-color: var(--grey);
+		width: 95%;
+		padding: 4%;
+		justify-self: center;
+	}
+
+	.process-card {
+		background-color: var(--white);
+		display: grid;
+		width: 100%;
+		padding: 2%;
+		grid-template-columns: 1fr 2.5fr;
+		grid-template-rows: .75fr 1fr;
+		grid-template-areas: 
+		"icon pro-h4"
+		"icon pro-info"
+		;
+	}
+
+	.process-card img {
+		grid-area: icon;
+		width: 50%;
+		align-self: center;
+		justify-self: center;
+	}
+
+	.process-card p, .process-card li {
+		grid-area: pro-info;
+		font-size: 70%;
+	}
+
+	.process-card li {
+		margin-bottom: 5px;
+	}
+
+	.process-card h4 {
+		grid-area: pro-h4;
+		align-self: end;
+		margin-bottom: 5px;
+	}
+
+	/* ---------- home - workers ---------- */
+	#hm-workers {
+		grid-area: workers;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: .1fr .7fr 1fr .5fr;
+		grid-template-areas:
+		"wrk-h3 wrk-h3"
+		"wrk-p wrk-p"
+		"wrk-1 wrk-1"
+		"wrk-2 wrk-3"
+		;
+
+	}
+
+	#hm-workers h3 {
+		grid-area: wrk-h3;
+	}
+
+	#hm-workers p {
+		grid-area: wrk-p;
+	}
+
+	.wrkPic-big {
+		grid-area: wrk-1;
+	}
+
+	.wrkPic-sml1 {
+		grid-area: wrk-2;
+	}
+
+	.wrkPic-sml2 {
+		grid-area: wrk-3;
+	}
+
+	#hm-workers h3, #hm-workers p {
+		color: var(--white);
+		background: var(--blue);
+		height: 100%;
+		padding: 4%;
+	}
+
+	#hm-workers img {
+		width: 100%;
+	}
+
+
+	/* ---------- home - service ---------- */
+	#hm-service {
+		grid-area: service;
+		margin: 4%;
+		display: grid;
+		grid-template-rows: 100px repeat(7, 250px);
+	}
+
+	.srv-p {
+		background: hsla(186, 85%, 46%, 60%);
+		color: var(--white);
+		font-weight: var(--smi);
+		text-align: center;
+		font-size: 120%;
+		line-height: 50px;
+		position: relative;
+		bottom: 53px;
+	}
+
+	.srv-img {
+		width: 100%;
+	}
+
+	/* ---------- home - reviews ---------- */
+	#reviews {
+		grid-area: review;
+		display: grid;
+		background-color: var(--blue);
+		grid-template-rows: .5fr repeat(3, 2fr);
+		gap: 20px;
+		padding: 40px 5%;
+	}
+
+	.review-p {
+		display: grid;
+		background-color: var(--white);
+		text-align: center;
+		padding: 5%;
+	}
+
+	#reviews h2 {
+		color: var(--white);
+	}
+
+	#reviews cite {
+		align-self: center;
+		font-weight: var(--smi);
+	}
+
+	/* ---------- home - cta ---------- */
+	#hm-cta {
+		grid-area: cta;
+		background-image: url(../pic/handshake.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		padding: 8%;
+		height: 250px;
+		font-size: 110%;
+	}
+
+	.cta-p {
+		font-weight: var(--med);
+	}
+
+	.cta-num {
+		color: var(--black);
+		font-weight: var(--smi);
+	}
+
+	#hm-cta ul {
+		padding: 10px 0;
+	}
+
+	
+
+	/* -------------------- Service Page -------------------- */
+	#service {
+		grid-template-rows: 75px 9fr 200px;
+	}
+
+	
+	/* ---------- Service - Main ---------- */
+	#service-main {
+		grid-area: main;
+		display: grid;
+		gap: 25px;
+		grid-template-rows: .6fr repeat(7, .5fr) .75fr;
+		grid-template-areas:
+		"srv-header"
+		"remodel"
+		"deck"
+		"roof"
+		"siding"
+		"addition"
+		"door"
+		"new"
+		"srv-cta"
+		;
+	}
+
+	#remodel {
+		grid-area: remodel;
+	}
+	
+	#deck {
+		grid-area: deck;
+	}
+
+	#roof {
+		grid-area: roof;
+	}
+
+	#siding {
+		grid-area: siding;
+	}
+
+	#addition {
+		grid-area: addition;
+	}
+
+	#door {
+		grid-area: door;
+	}
+
+	#new {
+		grid-area: new;
+	}
+
+	#srv-header {
+		grid-area: srv-header;
+		padding: 5%;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		background-color: var(--blue);
+	}
+
+	#srv-header h1, #srv-header p {
+		color: var(--white);
+	}
+
+	
+	/* ---------- Service - Cards ---------- */
+	#service-main article {
+		display: grid;
+		gap: 15px;
+		padding: 5%;
+		grid-template-rows: .5fr 1fr;
+	}
+
+	#service-main article img {
+		width: 100%;
+		align-self: end;
+	}
+
+	#service-main p {
+		margin-top: 10px;
+	}
+
+	#service-main h3 {
+		margin-bottom: 10px;
+	}
+
+	#service-main article ul {
+		list-style-type: disc;
+		list-style-position: inside;
+		margin: 10px 5px;
+	}
+
+	/* ---------- Service - cta ---------- */
+	#srv-cta {
+		grid-area: srv-cta;
+		background-image: 
+			linear-gradient(
+				rgba(0, 0, 0, .4),
+				rgba(0, 0, 0, .4)
+			),
+			url(../pic/design.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		padding: 8%;
+		font-size: 110%;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		align-items: center;
+	}
+
+	#srv-cta p {
+		color: var(--white);
+	}
+
+	#srv-cta li > a {
+		color: var(--white);
+		font-weight: var(--smi);
+	}
+
+	/* -------------------- Contact Page -------------------- */
+	#contact {
+		grid-template-rows: 75px 1fr 200px;
+	}
+
+	#contact main {
+		grid-area: main;
+		display: grid;
+		grid-template-rows: .125fr 1fr .5fr;
+		grid-template-areas: 
+		"ct-h1"
+		"form"
+		"ct-info"
+		;
+	}
+
+	#contact h1 {
+		grid-area: ct-h1;
+		background-color: var(--blue);
+		color: var(--white);
+	}
+
+	/* ---------- Contact - Form ---------- */
+	#form {
+		grid-area: form;
+		background-color: var(--blue);
+		display: grid;
+		grid-template-rows: 1fr .5fr;
+		padding: 4%;
+	}
+
+	#form section {
+		background-color: var(--white);
+	}
+
+	.formS1 {
+		padding: 5% 5% 0 5%;
+	}
+
+	.formS2 {
+		padding: 0% 5% 5% 5%;
+	}
+
+	#form .title {
+		font-weight: var(--med);
+	}
+
+	#form .inputs,
+	#form select,
+	#form textarea {
+		width: 100%;
+		padding: 5px;
+		margin: 5px 0 10px 0;
+		background-color: var(--white);
+		border: 1px solid var(--black);
+	}
+
+	fieldset label {
+		margin: 5px 10px 5px 1px;
+	}
+
+	fieldset {
+		margin: 10px 0;
+	}
+
+	#form .btn {
+		border: none;
+	}
+
+	/* ---------- Contact - Info ---------- */
+	#contact-info {
+		grid-area: ct-info;
+		background-color: var(--grey);
+		font-size: 80%;
+		display: grid;
+		margin: 4%;
+		padding: 4%;
+		gap: 5px;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: repeat(6, .25fr);
+		grid-template-areas:
+		"social email"
+		"social email"
+		"social hours"
+		"address hours"
+		"address hours"
+		"address hours"
+		;
+	}
+
+	#contact-info h4 {
+		padding: 8px;
+	}
+
+	#contact-info dt {
+		font-weight: var(--med);	
+	}
+
+	#contact-info dd {
+		margin-bottom: 5px;
+	}
+
+	#social {
+		grid-area: social;
+		display: grid;
+		grid-template-rows: .5fr 1fr;
+		grid-template-columns: 1fr 1fr;
+		padding: 5%;
+	}
+
+	#social h4 {
+		grid-column: 1/3;
+	}
+
+	#social img, #social p {
+		transform: scale(.8);
+	}
+
+	#hours {
+		grid-area: hours;
+	}
+
+	#address {
+		grid-area: address;
+	}
+
+	#bus-email {
+		grid-area: email;
+	}
+
+	.info-cards {
+		background-color: var(--white);
+		text-align: center;
+		padding: 5%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
