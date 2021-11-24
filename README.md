@@ -1,1 +1,0 @@
-# GIT414_M5_Responsive_Site
