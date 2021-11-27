@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
-/*	SECTION: RESET 
-	http://meyerweb.com/eric/tools/css/reset/ 
-   	v2.0 | 20110126
-   	License: none (public domain)
-   	modified by: Bobby Sherman */
+/* SECTION: RESET */
+
+	/* 	http://meyerweb.com/eric/tools/css/reset/ 
+   		v2.0 | 20110126
+   		License: none (public domain)
+   		modified by: Bobby Sherman */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,7 +72,7 @@ h1 {
 h2 {
 	text-align: center;
 	font-weight: var(--smi);
-	font-size: 150%;
+	font-size: 200%;
 	padding: 10%;
 }
 
@@ -136,7 +137,7 @@ p {
 		justify-content: space-between;
 		height: 75px;
 		padding: 2%;
-		/* REVIEW: z-index: 1000; */
+		z-index: 1000; /* REVIEW */
 	}
 
 	.logo-a {
@@ -147,12 +148,13 @@ p {
 		height: 40px;
 	}
 
-	/* FIXME: 
-	- nav doesn't display well on home screen
-	- nav doesn't have animation
-	- hamburger needs to be clickable on mobile */
 	
 	/* ANCHOR: Nav */
+	/* FIXME: Nav
+		- nav doesn't display well on home screen
+		- nav doesn't have animation
+		- hamburger needs to be clickable on mobile 
+	*/
 	nav {
 		padding: 5px;
 	}
@@ -204,7 +206,7 @@ p {
 		background-position: bottom;
 	}
 
-	.home-link, .service-link, .contact-link {
+	.current-page {
 		background-image: url(../background/blue-box.svg);
 		background-repeat: no-repeat;
 		background-size: 325px;
@@ -213,14 +215,15 @@ p {
 
 	
 	/* MOBILE - ANCHOR: BODY */
-	body {
+	/* body {
 		display: grid;
+		REVIEW grid-template-rows: 75px auto auto;
 		grid-template-areas: 
 		"header"
 		"main"
 		"footer"
 		;
-	}
+	}  */
 
 	
 	/* MOBILE - ANCHOR: FOOTER */
@@ -295,8 +298,10 @@ p {
 
 
 	/* -------------------- SECTION: HOME -------------------- */
+	/* NOTE: Grid <body> */
 	#home {
-		grid-template-rows: 75px 250px 3fr 200px;
+		display: grid;
+		grid-template-rows: auto 5% auto auto;
 		grid-template-areas: 
 		"header"
 		"head-cta"
@@ -305,9 +310,10 @@ p {
 		;
 	}
 
+	/* ANCHOR: HEAD CTA */
 	#head-cta {
 		grid-area: 1 / 1 / 3 / 2;
-		/* REVIEW: z-index: 1; */
+		z-index: 1; /* REVIEW */
 		background-image: 
 			linear-gradient(
 				rgba(0, 0, 0, .2),
@@ -315,6 +321,7 @@ p {
 			),
 			url(../pic/room.jpg);
 		background-repeat: no-repeat;
+		background-position: center;
 		background-size: cover;
 		padding: 4%;
 		display: flex;
@@ -326,10 +333,10 @@ p {
 		color: var(--white);
 	}
 
+	/* NOTE: Grid <main> */
 	#hm-main {
 		grid-area: main;
 		display: grid;
-		grid-template-rows: .75fr .5fr 2fr .75fr .25fr;
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -345,7 +352,8 @@ p {
 		grid-area: process;
 		display: grid;
 		grid-template-rows: 1fr 4fr;
-		padding-bottom: 10%;
+		padding: 0 5% 10% 5%;
+		/* padding-bottom: 10%;	 */
 	}
 
 	#process h2 {
@@ -355,10 +363,8 @@ p {
 	#process article {
 		display: grid;
 		grid-template-rows: repeat(5, 1fr);
-		grid-template-columns: 1fr;
 		grid-row-gap: 10px;
 		background-color: var(--grey);
-		width: 95%;
 		padding: 4%;
 		justify-self: center;
 	}
@@ -369,7 +375,7 @@ p {
 		width: 100%;
 		padding: 2%;
 		grid-template-columns: 1fr 2.5fr;
-		grid-template-rows: .75fr 1fr;
+		grid-template-rows: .90fr 1fr;
 		grid-template-areas: 
 		"icon pro-h4"
 		"icon pro-info"
@@ -404,22 +410,19 @@ p {
 		grid-area: workers;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: .1fr .7fr 1fr .5fr;
+		grid-template-rows: .5fr 1fr .5fr;
 		grid-template-areas:
-		"wrk-h3 wrk-h3"
-		"wrk-p wrk-p"
+		"wrk-exp wrk-exp"
 		"wrk-1 wrk-1"
 		"wrk-2 wrk-3"
 		;
-
 	}
 
-	#hm-workers h3 {
-		grid-area: wrk-h3;
-	}
-
-	#hm-workers p {
-		grid-area: wrk-p;
+	.wrk-exp {
+		grid-area: wrk-exp;
+		background-color: var(--blue);
+		padding: 5%;
+		width: 100%;
 	}
 
 	.wrkPic-big {
@@ -434,38 +437,45 @@ p {
 		grid-area: wrk-3;
 	}
 
-	#hm-workers h3, #hm-workers p {
-		color: var(--white);
-		background: var(--blue);
-		height: 100%;
-		padding: 4%;
-	}
-
 	#hm-workers img {
 		width: 100%;
+	}
+
+	#hm-workers p, #hm-workers h3 {
+		color: var(--white);
+		padding: 2%;
 	}
 
 
 	/* HOME - ANCHOR: SERVICE */
 	#hm-service {
 		grid-area: service;
-		margin: 4%;
 		display: grid;
-		grid-template-rows: 100px repeat(7, 250px);
+		row-gap: 15px;
+		grid-template-rows: .1fr repeat(7, .75fr);
+		margin-bottom: 50px;
+	}
+
+	.srv-lnk {
+		display: grid;
+		grid-template-rows: .8fr .2fr;
+		align-items: end;
+		padding: 4%;
 	}
 
 	.srv-p {
 		background: hsla(186, 85%, 46%, 60%);
 		color: var(--white);
 		font-weight: var(--smi);
-		text-align: center;
 		font-size: 120%;
-		line-height: 50px;
-		position: relative;
-		bottom: 53px;
+		grid-area: 2 / 1 / 3 / 2;
+		width: 100%;
+		text-align: center;
+		padding: 10px;
 	}
 
 	.srv-img {
+		grid-area: 1 / 1 / 3 / 2;
 		width: 100%;
 	}
 
@@ -476,8 +486,7 @@ p {
 		display: grid;
 		background-color: var(--blue);
 		grid-template-rows: .5fr repeat(3, 2fr);
-		gap: 20px;
-		padding: 40px 5%;
+		padding-bottom: 50px;
 	}
 
 	.review-p {
@@ -485,6 +494,7 @@ p {
 		background-color: var(--white);
 		text-align: center;
 		padding: 5%;
+		margin: 5% 8%;
 	}
 
 	#reviews h2 {
@@ -501,10 +511,9 @@ p {
 	#hm-cta {
 		grid-area: cta;
 		background-image: url(../pic/handshake.jpg);
-		background-repeat: no-repeat;
 		background-position: center;
+		background-size: cover;
 		padding: 8%;
-		height: 250px;
 		font-size: 110%;
 	}
 
@@ -518,15 +527,19 @@ p {
 	}
 
 	#hm-cta ul {
-		padding: 10px 0;
-	} 
+		padding: 30px 0;
+	}
+
+	#hm-cta li {
+		padding: 5px 0;
+	}
 	/* !SECTION HOME - END */
 
 	
 	/* -------------------- SECTION: Service Page -------------------- */
-	#service {
+	/* #service { REVIEW service grid
 		grid-template-rows: 75px 9fr 200px;
-	}
+	} */
 
 	#service-main {
 		grid-area: main;
@@ -616,6 +629,10 @@ p {
 
 
 	/* SERVICE - ANCHOR: CTA */
+	/* FIXME
+		- the text is too small
+		- padding on the phone number
+	*/
 	#srv-cta {
 		grid-area: srv-cta;
 		background-image: 
@@ -669,6 +686,9 @@ p {
 
 
 	/* CONTACT - ANCHOR: FORM */
+	/* FIXME
+		- form elements seem too small
+	*/
 	#form {
 		grid-area: form;
 		background-color: var(--blue);
@@ -717,6 +737,9 @@ p {
 
 
 	/* CONTACT - ANCHOR: INFO CARDS */
+	/* FIXME
+		- seem too small
+	*/
 	#contact-info {
 		grid-area: ct-info;
 		background-color: var(--grey);
