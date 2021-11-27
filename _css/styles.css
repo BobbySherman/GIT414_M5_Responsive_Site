@@ -61,7 +61,7 @@ input, textarea {
 
 
 /* ---------- SECTION: Global Styles ---------- */
-/* ANCHOR: Heading */
+/* ANCHOR: h GLOBAL */
 h1 {
 	text-align: center;
 	font-size: 300%;
@@ -86,13 +86,12 @@ h4 {
 	margin-bottom: 10px;
 }
 
-/* ANCHOR: Paragraph Style */
+/* ANCHOR: P GLOBAL */
 p {
-	font-weight: var(--nrm);
 	color: var(--black);
 }
 
-/* ANCHOR: Button Style */
+/* ANCHOR: BTN GLOBAL */
 .btn {
 	display: inline-block;
 	background-color: var(--blue);
@@ -101,6 +100,180 @@ p {
 	color: var(--white);
 	font-weight: var(--smi);
 }
+
+/* ANCHOR CTA GLOBAL */
+#cta { 
+		background-size: cover;
+		background-position: center;
+		padding: 8%;
+		display: grid;
+}
+
+#cta p {        
+	font-weight: var(--med);
+}
+
+#cta li {
+	padding: 5px 0;
+}
+
+#cta ul {
+    padding: 30px 0;
+}
+    
+.cta-num {
+	color: var(--black);
+	font-weight: var(--smi);
+}
+
+/* ANCHOR MAIN GLOBAL */
+main {
+	grid-area: main;
+	display: grid;
+}
+
+/* ANCHOR FOOTER GLOBAL */
+footer {
+	grid-area: footer;
+	background-color: var(--black);
+	display: grid;
+}
+
+footer p, footer a {
+	color: var(--white);
+}
+
+footer > img {
+	grid-area: ft-logo;
+	align-self: end;
+}
+
+footer ul {
+	grid-area: ft-social;
+	/* justify-self: end;
+	align-self: end; */
+	display: grid;
+	text-align: center;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+/* https://css-tricks.com/spriting-img/ -- Robin Rendle (Feb 6, 2015) */
+.ig {
+	object-fit: cover; /* modified */
+	object-position: 0 0;
+}
+
+.fb {
+	object-fit: cover; /* modified */
+	object-position: 0 0;
+}
+
+footer address {
+	grid-area: ft-info;
+}
+
+footer section {
+	grid-area: ft-btm;
+	text-align: center;
+	align-self: end;
+} 
+
+
+/* ANCHOR HOME GLOBAL */
+#home {
+	display: grid;
+}
+
+#process {
+		grid-area: process;
+		display: grid;
+}
+
+#process article {
+	display: grid;
+	background-color: var(--grey);
+}
+
+.process-card {
+	background-color: var(--white);
+	display: grid;
+}
+
+.process-card img {
+	grid-area: pro-icon;
+}
+
+.process-card h4 {
+	grid-area: pro-h4;
+}
+
+.process-card p, .process-card li {
+	grid-area: pro-info;
+}
+
+#hm-workers {
+		grid-area: workers;
+		display: grid;
+}
+
+#hm-service {
+		grid-area: service;
+		display: grid;
+}
+
+.srv-lnk {
+		display: grid;
+		align-items: end;
+}
+
+.srv-p {
+	background: hsla(186, 85%, 46%, 60%);
+	color: var(--white);
+	font-weight: var(--smi);
+	font-size: 120%;
+	grid-area: 2 / 1 / 3 / 2;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+}
+
+.srv-img {
+		grid-area: 1 / 1 / 3 / 2;
+		width: 100%;
+}
+
+#reviews {
+		grid-area: review;
+		display: grid;
+		background-color: var(--blue);
+}
+
+.review-p {
+	display: grid;
+	background-color: var(--white);
+	text-align: center;
+	padding: 5%;
+	margin: 5% 8%;
+}
+
+#reviews h2 {
+	color: var(--white);
+}
+
+#reviews cite {
+	align-self: center;
+	font-weight: var(--smi);
+}
+
+#home #cta {
+	grid-area: cta;
+	background-image: url(../pic/handshake.jpg);
+}
+
+/* ANCHOR SERVICE GLOBAL */
+
+
+/* ANCHOR CONTACT GLOBAL */
 
 
 /* ANCHOR: Variables */
@@ -128,7 +301,9 @@ p {
 	/* ---------- SECTION: Mobile Global ---------- */
 	
 	/* MOBILE - ANCHOR: Header */
-	.head-cta-logo, .head-nbr {display: none;}
+	.head-cta-logo, .head-nbr {
+		display: none;
+	}
 
 	#header {
 		grid-area: header;
@@ -213,24 +388,12 @@ p {
 		background-position: bottom;
 	}
 
-	
-	/* MOBILE - ANCHOR: BODY */
-	/* body {
-		display: grid;
-		REVIEW grid-template-rows: 75px auto auto;
-		grid-template-areas: 
-		"header"
-		"main"
-		"footer"
-		;
-	}  */
 
-	
 	/* MOBILE - ANCHOR: FOOTER */
 	footer {
-		grid-area: footer;
+		/* grid-area: footer;
 		background-color: var(--black);
-		display: grid;
+		display: grid; */
 		grid-row-gap: 10px;
 		padding: 5%;
 		grid-template-rows: .5fr .5fr 1fr;
@@ -243,44 +406,42 @@ p {
 	}
 
 	footer p, footer a {
-		color: var(--white);
+		/* color: var(--white); */
 		font-size: 80%;
 	}
 
-	footer > img {
-		grid-area: ft-logo;
-		align-self: end;
+	footer img {
+		/* grid-area: ft-logo;
+		align-self: end; */
 		width: 150px;
 	}
 
-	footer > ul {
-		grid-area: ft-social;
+	footer ul {
+		/* grid-area: ft-social;
 		justify-self: end;
 		align-self: end;
+		display: grid;
+		text-align: center;
+		grid-template-columns: repeat(2, 1fr); */
+		column-gap: 5px;
 	}
 
-	footer > ul > li {
-		display: inline;
-		margin-left: 10px;
-	}
-
-	/* https://css-tricks.com/spriting-img/ -- Robin Rendle (Feb 6, 2015) */
 	.ig {
-		object-fit: cover; /* modified */
-		object-position: 0 0;
+		/* object-fit: cover; */ /* modified */
+		/* object-position: 0 0; */
 		width: 40px;
 		height: 40px;
 	}
 
 	.fb {
-		object-fit: cover; /* modified */
-		object-position: 0 0;
+		/* object-fit: cover; */ /* modified */
+		/* object-position: 0 0; */
 		width: 20px;
 		height: 39.5px;
 	}
 
 	footer address {
-		grid-area: ft-info;
+		/* grid-area: ft-info; */
 		text-align: right;
 	}
 
@@ -289,18 +450,18 @@ p {
 		padding: 5px 0;
 	}
 
-	footer section {
+	/* footer section {
 		grid-area: ft-btm;
 		text-align: center;
 		align-self: end;
-	} 
+	}  */
 	/* !SECTION: MOBILE GLOBAL - END */
 
 
-	/* -------------------- SECTION: HOME -------------------- */
+	/* -------------------- SECTION: MOBILE HOME -------------------- */
 	/* NOTE: Grid <body> */
 	#home {
-		display: grid;
+		/* display: grid; */
 		grid-template-rows: auto 5% auto auto;
 		grid-template-areas: 
 		"header"
@@ -329,14 +490,14 @@ p {
 	}
 
 	.head-p {
-		font-size: 110%;
 		color: var(--white);
+		font-weight: var(--med);
 	}
 
 	/* NOTE: Grid <main> */
 	#hm-main {
-		grid-area: main;
-		display: grid;
+		/* grid-area: main;
+		display: grid; */
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -347,50 +508,37 @@ p {
 	}
 
 	
-	/* HOME - ANCHOR: PROCESS */
+	/* HOME - ANCHOR: MOBILE PROCESS */
 	#process {
-		grid-area: process;
-		display: grid;
 		grid-template-rows: 1fr 4fr;
 		padding: 0 5% 10% 5%;
-		/* padding-bottom: 10%;	 */
-	}
-
-	#process h2 {
-		align-self: center;
 	}
 
 	#process article {
-		display: grid;
 		grid-template-rows: repeat(5, 1fr);
-		grid-row-gap: 10px;
-		background-color: var(--grey);
+		row-gap: 10px;
 		padding: 4%;
-		justify-self: center;
+		/* justify-self: center; */
 	}
 
 	.process-card {
-		background-color: var(--white);
-		display: grid;
 		width: 100%;
-		padding: 2%;
+		/* padding: 2%; */
 		grid-template-columns: 1fr 2.5fr;
 		grid-template-rows: .90fr 1fr;
 		grid-template-areas: 
-		"icon pro-h4"
-		"icon pro-info"
+		"pro-icon pro-h4"
+		"pro-icon pro-info"
 		;
 	}
 
 	.process-card img {
-		grid-area: icon;
 		width: 50%;
 		align-self: center;
 		justify-self: center;
 	}
 
 	.process-card p, .process-card li {
-		grid-area: pro-info;
 		font-size: 70%;
 	}
 
@@ -399,16 +547,13 @@ p {
 	}
 
 	.process-card h4 {
-		grid-area: pro-h4;
 		align-self: end;
 		margin-bottom: 5px;
 	}
 
 	
-	/* HOME - ANCHOR: WORKERS */
+	/* HOME - ANCHOR: MOBILE WORKERS */
 	#hm-workers {
-		grid-area: workers;
-		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: .5fr 1fr .5fr;
 		grid-template-areas:
@@ -447,23 +592,23 @@ p {
 	}
 
 
-	/* HOME - ANCHOR: SERVICE */
+	/* HOME - ANCHOR: MOBILE SERVICE */
 	#hm-service {
-		grid-area: service;
-		display: grid;
+		/* grid-area: service;
+		display: grid; */
 		row-gap: 15px;
 		grid-template-rows: .1fr repeat(7, .75fr);
 		margin-bottom: 50px;
 	}
 
 	.srv-lnk {
-		display: grid;
-		grid-template-rows: .8fr .2fr;
-		align-items: end;
+		/* display: grid;
+		align-items: end; */
 		padding: 4%;
+		grid-template-rows: .8fr .2fr;
 	}
 
-	.srv-p {
+	/* .srv-p {
 		background: hsla(186, 85%, 46%, 60%);
 		color: var(--white);
 		font-weight: var(--smi);
@@ -477,73 +622,48 @@ p {
 	.srv-img {
 		grid-area: 1 / 1 / 3 / 2;
 		width: 100%;
-	}
+	} */
 
 	
-	/* HOME - ANCHOR: REVIEWS */
+	/* HOME - ANCHOR: MOBILE REVIEWS */
 	#reviews {
-		grid-area: review;
+		/* grid-area: review;
 		display: grid;
-		background-color: var(--blue);
+		background-color: var(--blue); */
 		grid-template-rows: .5fr repeat(3, 2fr);
 		padding-bottom: 50px;
 	}
 
-	.review-p {
+	/* .review-p {
 		display: grid;
 		background-color: var(--white);
 		text-align: center;
 		padding: 5%;
 		margin: 5% 8%;
-	}
+	} */
 
-	#reviews h2 {
+	/* #reviews h2 {
 		color: var(--white);
-	}
+	} */
 
-	#reviews cite {
+	/* #reviews cite {
 		align-self: center;
 		font-weight: var(--smi);
-	}
+	} */
 
 	
-	/* HOME - ANCHOR: CTA */
-	#hm-cta {
+	/* HOME - ANCHOR: MOBILE CTA */
+	/* #home #cta {
 		grid-area: cta;
 		background-image: url(../pic/handshake.jpg);
-		background-position: center;
-		background-size: cover;
-		padding: 8%;
-		font-size: 110%;
-	}
-
-	.cta-p {
-		font-weight: var(--med);
-	}
-
-	.cta-num {
-		color: var(--black);
-		font-weight: var(--smi);
-	}
-
-	#hm-cta ul {
-		padding: 30px 0;
-	}
-
-	#hm-cta li {
-		padding: 5px 0;
-	}
+	} */
 	/* !SECTION HOME - END */
 
 	
 	/* -------------------- SECTION: Service Page -------------------- */
-	/* #service { REVIEW service grid
-		grid-template-rows: 75px 9fr 200px;
-	} */
-
 	#service-main {
-		grid-area: main;
-		display: grid;
+		/* grid-area: main;
+		display: grid; */
 		gap: 25px;
 		grid-template-rows: .6fr repeat(7, .5fr) .75fr;
 		grid-template-areas:
@@ -629,11 +749,7 @@ p {
 
 
 	/* SERVICE - ANCHOR: CTA */
-	/* FIXME
-		- the text is too small
-		- padding on the phone number
-	*/
-	#srv-cta {
+	#service #cta {
 		grid-area: srv-cta;
 		background-image: 
 			linear-gradient(
@@ -641,35 +757,26 @@ p {
 				rgba(0, 0, 0, .4)
 			),
 			url(../pic/design.jpg);
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
-		padding: 8%;
-		font-size: 110%;
-		display: grid;
-		grid-template-rows: 1fr 1fr;
-		align-items: center;
 	}
 
-	#srv-cta p {
+	#service .cta-num {
 		color: var(--white);
 	}
 
-	#srv-cta li > a {
+	#service #cta p {
 		color: var(--white);
-		font-weight: var(--smi);
-	} 
+	}
 	/* !SECTION SERVICE - END */
 
 
 	/* -------------------- SECTION: CONTACT -------------------- */
-	#contact {
+	/* #contact {
 		grid-template-rows: 75px 1fr 200px;
-	}
+	} */
 
 	#contact main {
-		grid-area: main;
-		display: grid;
+		/* grid-area: main;
+		display: grid; */
 		grid-template-rows: .125fr 1fr .5fr;
 		grid-template-areas: 
 		"ct-h1"
@@ -809,14 +916,263 @@ p {
 } /* !SECTION MOBILE - END */
 
 
+
+
 /* -------------------- SECTION: TABLET -------------------- */
 @media screen and (min-width: 668px) and (max-width: 1024px) {
 	/* ---------- SECTION: GLOBAL - TABLET ---------- */
 
 	/* !SECTION GLOBAL - END */
+	#header {
+		grid-area: header;
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		height: 75px;
+		padding: 2%;
+		z-index: 1000; /* REVIEW */
+	}
+
+	.logo-a {
+		padding: 5px;
+	}
+
+	.head-logo {
+		height: 40px;
+	}
+
+	.head-cta-logo {
+		display: block;
+	}
 	
+	.head-nbr {
+		display: block;
+	}
+
+	nav {
+		padding: 5px;
+	}
+
+	footer {
+		padding: 20px;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		justify-items: center;
+		align-items: center;
+		grid-template-areas:
+		"ft-logo ft-info ft-social"
+		". ft-btm ."
+		;
+	}
+
+	footer img {
+		width: 200px;
+		justify-self: left;
+	}
+
+	.ig {
+		/* object-fit: cover; */ /* modified */
+		/* object-position: 0 0; */
+		width: 40px;
+		height: 40px;
+		margin-left: 10px;
+	}
+
+	.fb {
+		/* object-fit: cover; */ /* modified */
+		/* object-position: 0 0; */
+		width: 20px;
+		height: 39.5px;
+	}
+
+	footer address a {
+		display: block;
+		text-align: center;
+	}
+
+	footer ul {
+		justify-self: right;
+	}
+
+	footer section {
+		margin-top: 30px;
+		font-size: 80%;
+	}
 	
 	/* ---------- SECTION: HOME ---------- */
+	#home {
+		grid-template-rows: auto;
+		grid-template-areas: 
+		"header"
+		"head-cta"
+		"main"
+		"footer"
+		;
+	}
+
+
+	/* ANCHOR: HEAD CTA */
+	#head-cta {
+		grid-area: 1 / 1 / 3 / 2;
+		z-index: 1; /* REVIEW */
+		background-image: 
+			linear-gradient(
+				rgba(0, 0, 0, .2),
+				rgba(0, 0, 0, .2)
+			),
+			url(../pic/room.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		padding: 4%;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.head-p {
+		color: var(--white);
+		font-weight: var(--med);
+	}
+
+	#hm-main {
+		/* grid-area: main;
+		display: grid; */
+		grid-template-areas: 
+		"process"
+		"workers"
+		"service"
+		"review"
+		"cta"
+		;
+	}
+
+
+	/* ANCHOR TABLET PROCESS */
+	#process {
+		/* grid-template-rows: repeat(2, auto); */
+		padding: 5%;
+	}
+
+	#process article {
+		grid-template-columns: repeat(5, auto);
+		column-gap: 10px;
+		padding: 4%;
+	}
+
+	#process-card {
+		grid-template-rows: 1fr .25fr 1fr;
+		height: 300px;
+		grid-template-areas: 
+		"pro-icon"
+		"pro-h4"
+		"pro-info"
+		;
+	}
+
+	.process-card img {
+		grid-area: icon;
+		width: 50%;
+		justify-self: center;
+	}
+
+	.process-card p, .process-card ul {
+		grid-area: pro-info;
+		text-align: center;
+	}
+
+	.process-card h4 {
+		grid-area: pro-h4;
+		text-align: center;
+	}
+
+
+	/* ANCHOR TABLET WORKERS */
+	#hm-workers {
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-areas:
+		"wrk-1 wrk-1 wrk-exp wrk-exp"
+		"wrk-1 wrk-1 wrk-exp wrk-exp"
+		"wrk-1 wrk-1 wrk-2 wrk-3"
+		;
+	}
+
+	.wrk-exp {
+		grid-area: wrk-exp;
+		background-color: var(--blue);
+		padding: 5%;
+		width: 100%;
+	}
+
+	.wrkPic-big {
+		grid-area: wrk-1;
+	}
+
+	.wrkPic-sml1 {
+		grid-area: wrk-2;
+	}
+
+	.wrkPic-sml2 {
+		grid-area: wrk-3;
+	}
+
+	#hm-workers img {
+		width: 100%;
+	}
+
+	#hm-workers p, #hm-workers h3 {
+		color: var(--white);
+		padding: 2%;
+	}
+
+
+	/* ANCHOR TABLET SERVICE */
+	#hm-service {
+		grid-template-columns: repeat(2, auto);
+		grid-template-rows: .25fr repeat(4, 1fr);
+		padding: 4%;
+		justify-items: center;
+		align-items: center;
+	}
+
+	#hm-service h2 {
+		grid-area: 1 / 1 / 2 / 3;
+	}
+
+	.srv-lnk {
+		padding: 2%;
+		margin: 2%;
+	}
+
+	.srv-img {
+		width: 100%;
+	}
+
+	.srv-lnk:last-of-type {
+		grid-area: 5 / 1 / 6 / 3;
+		width: 50%;
+	}
+
+	/* ANCHOR TABLET REVIEWS */
+	/* FIXME ADJUST GLOBAL STYLES */
+	#reviews {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#reviews h2 {
+		width: 100%;
+	}
+
+	.review-p {
+		width: 40%;
+		padding: 5%;
+		margin: 2%;
+	}
+
+	/* ANCHOR TABLET CTA */
+
 
 	/* !SECTION HOME - END */
 
@@ -830,6 +1186,8 @@ p {
 
 	/* !SECTION CONTACT - END */
 } /* !SECTION: TABLET - END */
+
+
 
 
 /* -------------------- SECTION: DESKTOP -------------------- */
