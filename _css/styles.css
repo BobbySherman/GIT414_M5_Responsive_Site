@@ -66,14 +66,14 @@ h1 {
 	text-align: center;
 	font-size: 300%;
 	font-weight: var(--smi);
-	padding: 10%;
+	padding: 5%;
 }
 
 h2 {
 	text-align: center;
 	font-weight: var(--smi);
 	font-size: 200%;
-	padding: 10%;
+	padding: 5%;
 }
 
 h3 {
@@ -86,10 +86,12 @@ h4 {
 	margin-bottom: 10px;
 }
 
+
 /* ANCHOR: p GLOBAL */
 p {
 	color: var(--black);
 }
+
 
 /* ANCHOR: btn GLOBAL */
 .btn {
@@ -100,6 +102,7 @@ p {
 	color: var(--white);
 	font-weight: var(--smi);
 }
+
 
 /* ANCHOR: CTA GLOBAL */
 #cta { 
@@ -126,11 +129,13 @@ p {
 	font-weight: var(--smi);
 }
 
+
 /* ANCHOR: main GLOBAL */
 main {
 	grid-area: main;
 	display: grid;
 }
+
 
 /* SECTION: footer GLOBAL */
 footer {
@@ -179,14 +184,17 @@ footer section {
 } 
 /* !SECTION END - footer GLOBAL */
 
+
 /* SECTION: HOME GLOBAL */
 #home {
 	display: grid;
 }
 
+
+/* ANCHOR: PROCESS */
 #process {
-		grid-area: process;
-		display: grid;
+	grid-area: process;
+	display: grid;
 }
 
 #process article {
@@ -211,11 +219,15 @@ footer section {
 	grid-area: pro-info;
 }
 
+
+/* ANCHOR: WORKERS */
 #hm-workers {
 		grid-area: workers;
 		display: grid;
 }
 
+
+/* ANCHOR: SERVICE */
 #hm-service {
 		grid-area: service;
 		display: grid;
@@ -242,6 +254,8 @@ footer section {
 		width: 100%;
 }
 
+
+/* ANCHOR: REVIEWS */
 #reviews {
 		grid-area: review;
 		display: grid;
@@ -265,6 +279,8 @@ footer section {
 	font-weight: var(--smi);
 }
 
+
+/* ANCHOR: CTA-HOME */
 #home #cta {
 	grid-area: cta;
 	background-image: url(../pic/handshake.jpg);
@@ -313,6 +329,7 @@ footer section {
 	color: var(--white);
 }
 
+
 /* ANCHOR: SERVICE CARDS */
 #service-main article {
 	display: grid;
@@ -339,6 +356,7 @@ footer section {
 	list-style-position: inside;
 	margin: 10px 5px;
 }
+
 
 /* ANCHOR: SERVICE CTA */
 #service #cta {
@@ -376,6 +394,7 @@ footer section {
 	background-color: var(--blue);
 	color: var(--white);
 }
+
 
 /* ANCHOR: FORM */
 #form {
@@ -415,6 +434,7 @@ fieldset {
 #form .btn {
 	border: none;
 }
+
 
 /* ANCHOR: INFO CARDS */
 #contact-info {
@@ -1200,7 +1220,7 @@ fieldset {
 	
 	/* SECTION: HOME */
 	#home {
-		grid-template-rows: auto;
+		grid-template-rows: auto 15% repeat(2, auto);
 		grid-template-areas: 
 		"header"
 		"head-cta"
@@ -1246,21 +1266,22 @@ fieldset {
 	}
 
 
-	/* ANCHOR: TABLET PROCESS */
+	/* ANCHOR: PROCESS */
 	#process {
-		/* grid-template-rows: repeat(2, auto); */
-		padding: 5%;
+		grid-template-rows: .2fr 1fr;
+		padding: 2%;
 	}
 
 	#process article {
-		grid-template-columns: repeat(5, auto);
+		grid-template-columns: repeat(5, 1fr);
 		column-gap: 10px;
-		padding: 4%;
+		padding: 1.5%;
+		margin-bottom: 3%;
 	}
 
-	#process-card {
-		grid-template-rows: 1fr .25fr 1fr;
-		height: 300px;
+	.process-card {
+		padding: 5% 5% 6% 5%;
+		grid-template-rows: 2fr .3fr 1fr;
 		grid-template-areas: 
 		"pro-icon"
 		"pro-h4"
@@ -1269,23 +1290,30 @@ fieldset {
 	}
 
 	.process-card img {
-		grid-area: icon;
-		width: 50%;
+		width: 40%;
+		/* padding: 5px; */
+		align-self: center;
 		justify-self: center;
 	}
 
-	.process-card p, .process-card ul {
-		grid-area: pro-info;
+	.process-card:nth-child(4) img {
+		width: 70%;
+		/* padding: 5%; */
+	}
+
+	.process-card p, .process-card li {
 		text-align: center;
+		font-size: 60%;
+		margin-bottom: 6px;
 	}
 
 	.process-card h4 {
-		grid-area: pro-h4;
 		text-align: center;
+		font-size: 80%;
 	}
 
 
-	/* ANCHOR: TABLET WORKERS */
+	/* ANCHOR: WORKERS */
 	#hm-workers {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: repeat(3, 1fr);
@@ -1305,6 +1333,8 @@ fieldset {
 
 	.wrkPic-big {
 		grid-area: wrk-1;
+		object-fit: cover;
+		height: 100%;
 	}
 
 	.wrkPic-sml1 {
@@ -1325,7 +1355,7 @@ fieldset {
 	}
 
 
-	/* ANCHOR: TABLET SERVICE */
+	/* ANCHOR: SERVICE */
 	#hm-service {
 		grid-template-columns: repeat(2, auto);
 		grid-template-rows: .25fr repeat(4, 1fr);
@@ -1352,7 +1382,8 @@ fieldset {
 		width: 50%;
 	}
 
-	/* ANCHOR: TABLET REVIEWS */
+
+	/* ANCHOR: REVIEWS */
 	/* FIXME ADJUST GLOBAL STYLES */
 	#reviews {
 		display: flex;
@@ -1371,15 +1402,13 @@ fieldset {
 	}
 
 	/* ANCHOR: CTA */
-
-
 	/* !SECTION: HOME - END */
 
 
 	/* SECTION: SERVICE */
 	#service-main {
-		/* justify-items: center; */
-		/* align-items: start; */
+		grid-template-rows: .5fr repeat(4, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		grid-template-areas:
 		"srv-header srv-header"
 		"remodel deck"
@@ -1389,15 +1418,22 @@ fieldset {
 		"srv-cta srv-cta"
 		;
 	}
+
+
 	/* ANCHOR: HEADING */
 	#srv-header {
 		padding: 0 10%;
+		margin-bottom: 5%;
 	}
+
+
 	/* ANCHOR: CARDS */
 	#new {
 		width: 50%;
 		justify-self: center;
 	}
+
+
 	/* ANCHOR: CTA */
 	/* !SECTION: SERVICE - END */
 
