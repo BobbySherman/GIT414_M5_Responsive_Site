@@ -73,7 +73,7 @@ h2 {
 	text-align: center;
 	font-weight: var(--smi);
 	font-size: 200%;
-	padding: 5%;
+	padding: 3%;
 }
 
 h3 {
@@ -276,10 +276,10 @@ footer section {
 	color: var(--white);
 }
 
-/* #reviews cite {
+#reviews cite {
 	align-self: center;
 	font-weight: var(--smi);
-} */
+}
 
 #reviews cite {
 	margin-bottom: 10px;
@@ -727,6 +727,7 @@ fieldset {
 	#hm-main {
 		/* grid-area: main;
 		display: grid; */
+		grid-template-rows: .5fr .5fr 2fr .75fr .25fr;
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -864,40 +865,13 @@ fieldset {
 		row-gap: 5%;
 	}
 
-	.review-p {
-		padding: 10% 5%;
-	}
-
-	/* .review-p {
-		display: grid;
-		background-color: var(--white);
-		text-align: center;
-		padding: 5%;
-		margin: 5% 8%;
-	} */
-
-	/* #reviews h2 {
-		color: var(--white);
-	} */
-
-	/* #reviews cite {
-		align-self: center;
-		font-weight: var(--smi);
-	} */
-
 	
 	/* ANCHOR: CTA */
-	/* #home #cta {
-		grid-area: cta;
-		background-image: url(../pic/handshake.jpg);
-	} */
 	/* !SECTION: END - HOME */
 
 	
 	/* SECTION: SERVICE */
 	#service-main {
-		/* grid-area: main;
-		display: grid; */
 		gap: 25px;
 		grid-template-rows: .6fr repeat(7, .5fr) .75fr;
 		grid-template-areas:
@@ -1268,6 +1242,8 @@ fieldset {
 	#hm-main {
 		/* grid-area: main;
 		display: grid; */
+		grid-template-rows: .25fr .25fr 1fr .7fr .3fr;
+		/* margin-bottom: 10%; */
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -1398,19 +1374,24 @@ fieldset {
 	/* ANCHOR: REVIEWS */
 	/* FIXME ADJUST GLOBAL STYLES */
 	#reviews {
-		display: flex;
+		/* display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: center; */
+		gap: 5%;
+		/* justify-items: center; */
+		grid-template-rows: .5fr repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	#reviews h2 {
 		width: 100%;
+		grid-area: 1 / 1 / 2 / 3;
 	}
 
-	.review-p {
-		width: 40%;
-		padding: 5%;
-		/* margin: 2%; */
+	.review-p:nth-child(4) {
+		grid-area: 3 / 1 / 4 / 3;
+		width: 47.5%;
+		justify-self: center;
 	}
 
 	/* ANCHOR: CTA */
@@ -1604,6 +1585,7 @@ fieldset {
 	#hm-main {
 		/* grid-area: main;
 		display: grid; */
+		grid-template-rows: 1fr 1fr 2.5fr 1fr 1fr;
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -1624,7 +1606,7 @@ fieldset {
 		grid-template-columns: repeat(5, 1fr);
 		column-gap: 10px;
 		padding: 1.5%;
-		margin-bottom: 3%;
+		margin-bottom: 5%;
 	}
 
 	.process-card {
@@ -1705,20 +1687,50 @@ fieldset {
 
 	/* ANCHOR: SERVICE */
 	#hm-service {
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: .5fr 2fr .5fr 2fr;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: .75fr 1fr .5fr 1fr;
 		padding: 4%;
 		justify-items: center;
 		align-items: center;
+		gap: 4%;
+		grid-template-areas:
+		"h2 h2 h2 h2 h2 h2"
+		"remodel remodel remodel deck deck deck"
+		"roofing roofing siding siding addition addition"
+		"doors doors doors new new new"
+		;
+	}
+
+	.srv-lnk:nth-child(2) {
+		grid-area: remodel;
+	}
+
+	.srv-lnk:nth-child(3) {
+		grid-area: deck;
+	}
+
+	.srv-lnk:nth-child(4) {
+		grid-area: roofing;
+	}
+
+	.srv-lnk:nth-child(5) {
+		grid-area: siding;
+	}
+
+	.srv-lnk:nth-child(6) {
+		grid-area: addition;
+	}
+
+	.srv-lnk:nth-child(7) {
+		grid-area: doors;
+	}
+
+	.srv-lnk:last-child {
+		grid-area: new;
 	}
 
 	#hm-service h2 {
-		grid-area: 1 / 1 / 2 / 3;
-	}
-
-	.srv-lnk {
-		padding: 2%;
-		margin: 2%;
+		grid-area: h2;
 	}
 
 	.srv-img {
@@ -1739,9 +1751,7 @@ fieldset {
 	}
 
 	.review-p {
-		/* width: 40%; */
 		padding: 5%;
-		/* margin: 2%; */
 	}
 	/* ANCHOR: CTA */
 	/* !SECTION: HOME - END */
