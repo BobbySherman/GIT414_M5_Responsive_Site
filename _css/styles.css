@@ -701,7 +701,7 @@ legend {
 		height: 40px;
 		width: 40px;
 		position: relative;
-		z-index: 900;
+		z-index: 5;
 	}
 
 	.nav-ul {
@@ -710,25 +710,25 @@ legend {
 		position: absolute;
 		background: var(--white);
 		top: 0;
-		right: 100%;
+		left: 100%;
 		width: 100%;
-		height: 100%;
-		padding-top: 25%;
-		z-index: 1;
+		padding-top: 20%;
+		z-index: 3;
+		transition: 400ms;
 	}
 
 	nav:hover ul {
 		opacity: 1;
-		transition: 500ms;
 		top: 0px;
-		right: 0px;
+		left: 0px;
 		width: 100%;
-		height: 100%;
-		padding-top: 25%;
+		height: 100vh;
+		padding-top: 20%;
+		overflow: hidden;
 	}
 
 	.nav-li {
-		padding: 30px 0;
+		padding: 6% 0;
 		display: block;
 		text-align: center;
 	}
