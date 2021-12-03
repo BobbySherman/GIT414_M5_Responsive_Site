@@ -23,7 +23,7 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	font-size: 110%;
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
@@ -92,7 +92,6 @@ p {
 	color: var(--black);
 }
 
-
 /* ANCHOR: btn GLOBAL */
 .btn {
 	display: inline-block;
@@ -103,6 +102,88 @@ p {
 	font-weight: var(--smi);
 }
 
+.btn:hover {
+	transition: 100ms ease-in-out;
+	background-color: var(--hvrBlue);
+}
+
+.btn:active {
+	transform: scale(.9);
+}
+
+/* ANCHOR: HEADER */
+#header {
+	grid-area: header;
+	align-items: center;
+	display: grid;
+	grid-template-columns: auto 2.15fr .1fr 1fr;
+	height: 100px;
+	padding: 1%;
+	z-index: 1000; /* REVIEW */
+}
+
+.menu-icon {
+	display: none;
+}
+
+.logo-a {
+	padding: 5px;
+}
+
+.head-logo {
+	height: 40px;
+}
+
+.head-cta-logo {
+	display: block;
+	padding: 3% 0;
+	height: 60px;
+}
+
+.head-nbr {
+	padding-left: 1.25%;
+	justify-self: left;
+}
+
+
+/* ANCHOR: NAV GLOBAL*/
+.nav-li {
+	display: inline;
+	padding: 1%;
+}
+
+.nav-link:hover, .head-nbr:hover {
+	background-image: url(../background/blue-box.svg);
+	background-repeat: no-repeat;
+	background-size: 170px;
+	background-position: bottom;
+}
+
+.current-page {
+	background-image: url(../background/blue-box.svg);
+	background-repeat: no-repeat;
+	background-size: 170px;
+	background-position: bottom;
+}
+
+.nav-link, .head-nbr {
+	color: var(--black);
+	font-weight: var(--smi);
+	font-size: 125%;
+	letter-spacing: 2px;
+}
+
+.nav-ul {
+	justify-self: end;
+	text-align: right;
+}
+
+.vrt-line {
+	border-left: 1.75px solid var(--black);
+	height: 40px;
+	justify-self: center;
+}
+
 
 /* ANCHOR: CTA GLOBAL */
 #cta { 
@@ -110,6 +191,7 @@ p {
 		background-position: center;
 		padding: 8%;
 		display: grid;
+		font-size: 125%;
 }
 
 #cta p {        
@@ -155,8 +237,6 @@ footer > img {
 
 footer ul {
 	grid-area: ft-social;
-	/* justify-self: end;
-	align-self: end; */
 	display: grid;
 	text-align: center;
 	grid-template-columns: repeat(2, 1fr);
@@ -240,7 +320,7 @@ footer section {
 }
 
 .srv-p {
-	background: hsla(186, 85%, 46%, 60%);
+	background: var(--alphaBlue);
 	color: var(--white);
 	font-weight: var(--smi);
 	font-size: 120%;
@@ -261,7 +341,7 @@ footer section {
 		grid-area: review;
 		display: grid;
 		background-color: var(--blue);
-		padding: 4%;
+		padding: 4% 4% 6% 4%;
 }
 
 .review-p {
@@ -269,7 +349,6 @@ footer section {
 	background-color: var(--white);
 	text-align: center;
 	padding: 5%;
-	/* margin: 5% 8%; */
 }
 
 #reviews h2 {
@@ -326,7 +405,6 @@ footer section {
 
 #srv-header {
 	grid-area: srv-header;
-	/* padding: 5%; */
 	display: grid;
 	grid-template-rows: 1fr 1fr;
 	background-color: var(--blue);
@@ -342,12 +420,10 @@ footer section {
 	display: grid;
 	gap: 15px;
 	padding: 5%;
-	grid-template-rows: .5fr 1fr;
 }
 
 #service-main article img {
 	width: 100%;
-	align-self: end;
 }
 
 #service-main p {
@@ -427,7 +503,6 @@ footer section {
 	margin: 5px 0 10px 0;
 	background-color: var(--white);
 	border: 1.2px solid var(--black);
-	/* border: none; */
 }
 
 fieldset label {
@@ -449,7 +524,6 @@ fieldset {
 	background-color: var(--grey);
 	display: grid;
 	margin: 3%;
-	/* padding: 3%; */
 }
 
 .info-cards {
@@ -475,6 +549,10 @@ fieldset {
 
 #bus-email {
 	grid-area: email;
+}
+
+#bus-email a {
+	color: var(--black);
 }
 
 #social h4 {
@@ -508,10 +586,11 @@ fieldset {
 :root {
 	/* ANCHOR: COLORS */
 	--white: hsl(0, 0%, 100%);
-	--blue: hsl(186, 85%, 46%);
-	--teal: hsl(180, 85%, 46%);
 	--grey: hsl(0, 0%, 87%);
 	--black: hsl(0, 0%, 0%);
+	--blue: hsl(200, 100%, 42%);
+	--alphaBlue: hsla(200, 100%, 42%, 65%);
+	--hvrBlue: hsl(200, 100%, 22%);
 
 	/* ANCHOR: FONT WEIGHTS */
 	--lt: 300;
@@ -524,13 +603,15 @@ fieldset {
 /* !SECTION: END - GLOBAL STYLES */
 
 
+
+
 /* SECTION: MOBILE */
 @media screen and (min-width: 320px) and (max-width: 667px)  {
 	
 	/* SECTION: MOBILE GLOBAL */
 	
 	/* ANCHOR: HEADER */
-	.head-cta-logo, .head-nbr {
+	.head-cta-logo, .head-nbr, .vrt-line {
 		display: none;
 	}
 
@@ -575,7 +656,7 @@ fieldset {
 		width: 40px;
 	}
 
-	nav ul {
+	.nav-ul {
 		display: none;
 		position: absolute;
 		background: var(--white);
@@ -592,7 +673,7 @@ fieldset {
 
 	.nav-li {
 		padding: 30px 0;
-		list-style: none;
+		display: block;
 		text-align: center;
 	}
 
@@ -620,9 +701,6 @@ fieldset {
 
 	/* MOBILE - ANCHOR: FOOTER */
 	footer {
-		/* grid-area: footer;
-		background-color: var(--black);
-		display: grid; */
 		grid-row-gap: 10px;
 		padding: 5%;
 		grid-template-rows: .5fr .5fr 1fr;
@@ -635,42 +713,29 @@ fieldset {
 	}
 
 	footer p, footer a {
-		/* color: var(--white); */
 		font-size: 80%;
 	}
 
 	footer img {
-		/* grid-area: ft-logo;
-		align-self: end; */
 		width: 150px;
 	}
 
 	footer ul {
-		/* grid-area: ft-social;
 		justify-self: end;
-		align-self: end;
-		display: grid;
-		text-align: center;
-		grid-template-columns: repeat(2, 1fr); */
-		column-gap: 5px;
+		column-gap: 10px;
 	}
 
 	.ig {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 40px;
 		height: 40px;
 	}
 
 	.fb {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 20px;
 		height: 39.5px;
 	}
 
 	footer address {
-		/* grid-area: ft-info; */
 		text-align: right;
 	}
 
@@ -678,19 +743,12 @@ fieldset {
 		display: block;
 		padding: 5px 0;
 	}
-
-	/* footer section: {
-		grid-area: ft-btm;
-		text-align: center;
-		align-self: end;
-	}  */
 	/* !SECTION: END - MOBILE GLOBAL */
 
 
 	/* SECTION: HOME */
 	/* NOTE: Grid <body> */
 	#home {
-		/* display: grid; */
 		grid-template-rows: auto 5% auto auto;
 		grid-template-areas: 
 		"header"
@@ -725,8 +783,6 @@ fieldset {
 
 	/* NOTE: Grid <main> */
 	#hm-main {
-		/* grid-area: main;
-		display: grid; */
 		grid-template-rows: .5fr .5fr 2fr .75fr .25fr;
 		grid-template-areas: 
 		"process"
@@ -748,12 +804,10 @@ fieldset {
 		grid-template-rows: repeat(5, 1fr);
 		row-gap: 10px;
 		padding: 4%;
-		/* justify-self: center; */
 	}
 
 	.process-card {
 		width: 100%;
-		/* padding: 4%; */
 		grid-template-columns: 1fr 2.5fr;
 		grid-template-rows: .90fr 1fr;
 		grid-template-areas: 
@@ -824,45 +878,22 @@ fieldset {
 
 	/* ANCHOR: SERVICE */
 	#hm-service {
-		/* grid-area: service;
-		display: grid; */
 		row-gap: 15px;
 		grid-template-rows: .1fr repeat(7, .75fr);
 		margin-bottom: 50px;
 	}
 
 	.srv-lnk {
-		/* display: grid;
-		align-items: end; */
 		padding: 4%;
 		grid-template-rows: .8fr .2fr;
 	}
 
-	/* .srv-p {
-		background: hsla(186, 85%, 46%, 60%);
-		color: var(--white);
-		font-weight: var(--smi);
-		font-size: 120%;
-		grid-area: 2 / 1 / 3 / 2;
-		width: 100%;
-		text-align: center;
-		padding: 10px;
-	}
-
-	.srv-img {
-		grid-area: 1 / 1 / 3 / 2;
-		width: 100%;
-	} */
-
 	
 	/* ANCHOR: REVIEWS */
 	#reviews {
-		/* grid-area: review;
-		display: grid;
-		background-color: var(--blue); */
 		grid-template-rows: .5fr repeat(3, 2fr);
-		/* padding-bottom: 50px; */
 		row-gap: 5%;
+		padding: 8%;
 	}
 
 	
@@ -873,7 +904,7 @@ fieldset {
 	/* SECTION: SERVICE */
 	#service-main {
 		gap: 25px;
-		grid-template-rows: .6fr repeat(7, .5fr) .75fr;
+		grid-template-rows: repeat(9, auto);
 		grid-template-areas:
 		"srv-header"
 		"remodel"
@@ -887,132 +918,17 @@ fieldset {
 		;
 	}
 
-	/* #remodel {
-		grid-area: remodel;
-	}
-	
-	#deck {
-		grid-area: deck;
-	}
-
-	#roof {
-		grid-area: roof;
-	}
-
-	#siding {
-		grid-area: siding;
-	}
-
-	#addition {
-		grid-area: addition;
-	}
-
-	#door {
-		grid-area: door;
-	}
-
-	#new {
-		grid-area: new;
-	} */
-
 	#srv-header {
-		/* grid-area: srv-header; */
 		padding: 5%;
-		/* display: grid; */
-		/* grid-template-rows: 1fr 1fr; */
-		/* background-color: var(--blue); */
-	}
-
-	/* #srv-header h1, #srv-header p {
-		color: var(--white);
-	} */
-
-	
-	/* ANCHOR: CARDS */
-	/* #service-main article {
-		display: grid;
-		gap: 15px;
-		padding: 5%;
-		grid-template-rows: .5fr 1fr;
-	}
-
-	#service-main article img {
-		width: 100%;
-		align-self: end;
-	}
-
-	#service-main p {
-		margin-top: 10px;
-	}
-
-	#service-main h3 {
-		margin-bottom: 10px;
-	}
-
-	#service-main article ul {
-		list-style-type: disc;
-		list-style-position: inside;
-		margin: 10px 5px;
-	} */
-
-
-	/* ANCHOR: CTA */
-	/* #service #cta {
-		grid-area: srv-cta;
-		background-image: 
-			linear-gradient(
-				rgba(0, 0, 0, .4),
-				rgba(0, 0, 0, .4)
-			),
-			url(../pic/design.jpg);
-	}
-
-	#service .cta-num {
-		color: var(--white);
-	}
-
-	#service #cta p {
-		color: var(--white);
-	} */
+	}	
 	/* !SECTION: END - SERVICE */
 
 
 	/* SECTION: CONTACT */
-	/* #contact {
-		grid-template-rows: 75px 1fr 200px;
-	} */
-
-	/* #contact main {
-		grid-template-rows: .125fr 1fr .5fr;
-		grid-template-areas: 
-		"ct-h1"
-		"form"
-		"ct-info"
-		;
-	} */
-
-	/* #contact h1 {
-		grid-area: ct-h1;
-		background-color: var(--blue);
-		color: var(--white);
-	} */
-
-
 	/* ANCHOR: FORM */
-	/* FIXME
-		- form elements seem too small
-	*/
 	#form {
-		/* grid-area: form;
-		background-color: var(--blue);
-		display: grid; */
 		grid-template-rows: 1fr .5fr;
-		/* padding: 4%; */
 	}
-
-	/* #form section {
-		background-color: var(--white);
-	} */
 
 	.formS1 {
 		padding: 5% 5% 0 5%;
@@ -1022,43 +938,12 @@ fieldset {
 		padding: 0% 5% 5% 5%;
 	}
 
-	/* #form .title {
-		font-weight: var(--med);
-	} */
-
-	/* #form .inputs,
-	#form select,
-	#form textarea {
-		width: 100%;
-		padding: 5px;
-		margin: 5px 0 10px 0;
-		background-color: var(--white);
-		border: 1px solid var(--black);
-	}
-
-	fieldset label {
-		margin: 5px 10px 5px 1px;
-	}
-
-	fieldset {
-		margin: 10px 0;
-	}
-
-	#form .btn {
-		border: none;
-	} */
-
 
 	/* ANCHOR: INFO CARDS */
 	/* FIXME
 		- seem too small
 	*/
 	#contact-info {
-		/* grid-area: ct-info;
-		background-color: var(--grey); */
-		/* font-size: 80%; */
-		/* display: grid; */
-		/* margin: 4%; */
 		padding: 3%;
 		gap: 3%;
 		grid-template-columns: 1fr 1fr;
@@ -1072,92 +957,17 @@ fieldset {
 		"address hours"
 		;
 	}
-
-	/* #contact-info h4 {
-		padding: 8px;
-	} */
-
-	/* #contact-info dt {
-		font-weight: var(--med);	
-	} */
-
-	/* #contact-info dd {
-		margin-bottom: 5px;
-	} */
-
-	/* #social {
-		grid-area: social;
-		display: grid;
-		grid-template-rows: .5fr 1fr;
-		grid-template-columns: 1fr 1fr;
-		padding: 5%;
-	} */
-
-	/* #social h4 {
-		grid-column: 1/3;
-	} */
-
-	/* #social img, #social p {
-		transform: scale(.9);
-	} */
-
-	/* #hours {
-		grid-area: hours;
-	}
-
-	#address {
-		grid-area: address;
-	}
-
-	#bus-email {
-		grid-area: email;
-	} */
-
-	/* .info-cards {
-		background-color: var(--white);
-		text-align: center;
-		padding: 5%;
-	} */
 	/* !SECTION: END - CONTACT */
-} /* !SECTION: END - MOBILE */
+} 
+/* !SECTION: END - MOBILE */
 
 
 
 
 /* SECTION: TABLET */
 @media screen and (min-width: 668px) and (max-width: 1024px) {
-	/* SECTION: TABLET GLOBAL */
-	/* !SECTION: END - TABLET GLOBAL */
-	#header {
-		grid-area: header;
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-		height: 75px;
-		padding: 2%;
-		z-index: 1000; /* REVIEW */
-	}
-
-	.logo-a {
-		padding: 5px;
-	}
-
-	.head-logo {
-		height: 40px;
-	}
-
-	.head-cta-logo {
-		display: block;
-	}
 	
-	.head-nbr {
-		display: block;
-	}
-
-	nav {
-		padding: 5px;
-	}
-
+	/* SECTION: TABLET GLOBAL */
 	footer {
 		padding: 20px;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -1203,10 +1013,11 @@ fieldset {
 		margin-top: 30px;
 		font-size: 80%;
 	}
+	/* !SECTION: END - TABLET GLOBAL */
 	
 	/* SECTION: HOME */
 	#home {
-		grid-template-rows: auto 15% repeat(2, auto);
+		grid-template-rows: auto 10% repeat(2, auto);
 		grid-template-areas: 
 		"header"
 		"head-cta"
@@ -1240,10 +1051,7 @@ fieldset {
 	}
 
 	#hm-main {
-		/* grid-area: main;
-		display: grid; */
-		grid-template-rows: .25fr .25fr 1fr .7fr .3fr;
-		/* margin-bottom: 10%; */
+		grid-template-rows: .5fr repeat(2, auto) 2fr 1fr;
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -1268,7 +1076,6 @@ fieldset {
 	}
 
 	.process-card {
-		/* padding: 5% 5% 6% 5%; */
 		grid-template-rows: 2fr .3fr 1fr;
 		grid-template-areas: 
 		"pro-icon"
@@ -1279,14 +1086,12 @@ fieldset {
 
 	.process-card img {
 		width: 40%;
-		/* padding: 5px; */
 		align-self: center;
 		justify-self: center;
 	}
 
 	.process-card:nth-child(4) img {
 		width: 70%;
-		/* padding: 5%; */
 	}
 
 	.process-card p, .process-card li {
@@ -1374,13 +1179,9 @@ fieldset {
 	/* ANCHOR: REVIEWS */
 	/* FIXME ADJUST GLOBAL STYLES */
 	#reviews {
-		/* display: flex;
-		flex-wrap: wrap;
-		justify-content: center; */
-		gap: 5%;
-		/* justify-items: center; */
-		grid-template-rows: .5fr repeat(2, 1fr);
-		grid-template-columns: repeat(2, 1fr);
+		gap: 4%;
+		grid-template-rows: .25fr repeat(2, 1fr);
+		grid-template-columns: repeat(2, auto);
 	}
 
 	#reviews h2 {
@@ -1390,7 +1191,7 @@ fieldset {
 
 	.review-p:nth-child(4) {
 		grid-area: 3 / 1 / 4 / 3;
-		width: 47.5%;
+		width: 48%;
 		justify-self: center;
 	}
 
@@ -1451,10 +1252,9 @@ fieldset {
 		column-gap: 1.5%;
 		padding: 2%;
 	}
-
-
 	/* !SECTION: CONTACT - END */
-} /* !SECTION: TABLET - END */
+} 
+/* !SECTION: TABLET - END */
 
 
 
@@ -1463,41 +1263,6 @@ fieldset {
 @media screen and (min-width: 1025px) {
 	
 	/* SECTION: DESKTOP GLOBAL */
-	
-	/* ANCHOR: HEADER */
-	#header {
-		grid-area: header;
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-		height: 100px;
-		padding: 2%;
-		z-index: 1000; /* REVIEW */
-	}
-
-	.logo-a {
-		padding: 5px;
-	}
-
-	.head-logo {
-		height: 40px;
-	}
-
-	.head-cta-logo {
-		display: block;
-	}
-	
-	.head-nbr {
-		display: block;
-	}
-
-
-	/* ANCHOR: NAV */
-	nav {
-		padding: 5px;
-	}
-
-
 	/* ANCHOR: FOOTER */
 	footer {
 		padding: 20px;
@@ -1517,16 +1282,12 @@ fieldset {
 	}
 
 	.ig {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 40px;
 		height: 40px;
 		margin-left: 10px;
 	}
 
 	.fb {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 20px;
 		height: 39.5px;
 	}
@@ -1583,8 +1344,6 @@ fieldset {
 	}
 
 	#hm-main {
-		/* grid-area: main;
-		display: grid; */
 		grid-template-rows: 1fr 1fr 2.5fr 1fr 1fr;
 		grid-template-areas: 
 		"process"
@@ -1610,7 +1369,6 @@ fieldset {
 	}
 
 	.process-card {
-		/* padding: 5% 5% 6% 5%; */
 		grid-template-rows: 2fr .3fr 1fr;
 		grid-template-areas: 
 		"pro-icon"
@@ -1621,14 +1379,12 @@ fieldset {
 
 	.process-card img {
 		width: 40%;
-		/* padding: 5px; */
 		align-self: center;
 		justify-self: center;
 	}
 
 	.process-card:nth-child(4) img {
 		width: 70%;
-		/* padding: 5%; */
 	}
 
 	.process-card p, .process-card li {
