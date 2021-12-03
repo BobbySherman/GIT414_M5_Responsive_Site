@@ -114,9 +114,11 @@ p {
 /* ANCHOR: HEADER */
 #header {
 	grid-area: header;
-	align-items: center;
+	/* align-items: center;
 	display: grid;
-	grid-template-columns: auto 2.15fr .1fr 1fr;
+	grid-template-columns: auto 2.15fr .1fr 1fr; */
+	display: flex;
+	flex-direction: row;
 	height: 100px;
 	padding: 1%;
 	z-index: 1000; /* REVIEW */
@@ -124,10 +126,6 @@ p {
 
 .menu-icon {
 	display: none;
-}
-
-.logo-a {
-	padding: 5px;
 }
 
 .head-logo {
@@ -142,7 +140,8 @@ p {
 
 .head-nbr {
 	padding-left: 1.25%;
-	justify-self: left;
+	/* justify-self: left; */
+	
 }
 
 
@@ -155,20 +154,20 @@ p {
 .nav-link:hover, .head-nbr:hover {
 	background-image: url(../background/blue-box.svg);
 	background-repeat: no-repeat;
-	background-size: 170px;
+	background-size: 150px;
 	background-position: bottom;
 }
 
 .current-page {
 	background-image: url(../background/blue-box.svg);
 	background-repeat: no-repeat;
-	background-size: 170px;
+	background-size: 150px;
 	background-position: bottom;
 }
 
 .nav-link, .head-nbr {
 	color: var(--black);
-	font-weight: var(--smi);
+	font-weight: var(--bld);
 	font-size: 125%;
 	letter-spacing: 2px;
 }
@@ -189,13 +188,15 @@ p {
 #cta { 
 		background-size: cover;
 		background-position: center;
-		padding: 8%;
-		display: grid;
-		font-size: 125%;
+		padding: 5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		font-size: 130%;
 }
 
 #cta p {        
-	font-weight: var(--med);
+	font-weight: var(--smi);
 }
 
 #cta li {
@@ -203,7 +204,7 @@ p {
 }
 
 #cta ul {
-    padding: 30px 0;
+	padding-top: 10px;
 }
     
 .cta-num {
@@ -323,7 +324,7 @@ footer section {
 	background: var(--alphaBlue);
 	color: var(--white);
 	font-weight: var(--smi);
-	font-size: 120%;
+	font-size: 150%;
 	grid-area: 2 / 1 / 3 / 2;
 	width: 100%;
 	text-align: center;
@@ -342,6 +343,7 @@ footer section {
 		display: grid;
 		background-color: var(--blue);
 		padding: 4% 4% 6% 4%;
+		font-size: 110%;
 }
 
 .review-p {
@@ -370,6 +372,7 @@ footer section {
 #home #cta {
 	grid-area: cta;
 	background-image: url(../pic/handshake.jpg);
+
 }
 /* !SECTION: END - HOME GLOBAL */
 
@@ -414,12 +417,17 @@ footer section {
 	color: var(--white);
 }
 
+#srv-header p {
+	font-size: 120%;
+}
+
 
 /* ANCHOR: SERVICE CARDS */
 #service-main article {
 	display: grid;
 	gap: 15px;
 	padding: 5%;
+	align-content: start;
 }
 
 #service-main article img {
@@ -484,6 +492,7 @@ footer section {
 	grid-area: form;
 	background-color: var(--blue);
 	display: grid;
+	grid-template-columns: repeat(2, 1fr);
 	padding: 4%;
 }
 
@@ -535,7 +544,7 @@ fieldset {
 #social {
 	grid-area: social;
 	display: grid;
-	grid-template-rows: .5fr 1fr;
+	grid-template-rows: .1fr .9fr;
 	grid-template-columns: 1fr 1fr;
 }
 
@@ -569,10 +578,11 @@ fieldset {
 
 #contact-info h4 {
 	padding: 8px;
+	margin-bottom: 10px;
 }
 
 #social img, #social p {
-	transform: scale(.8);
+	transform: scale(.9);
 }
 
 #social a {
@@ -621,16 +631,12 @@ fieldset {
 		display: flex;
 		justify-content: space-between;
 		height: 75px;
-		padding: 2%;
+		padding: 2% 5%;
 		z-index: 1000; /* REVIEW */
 	}
 
-	.logo-a {
-		padding: 5px;
-	}
-
 	.head-logo {
-		height: 40px;
+		height: 35px;
 	}
 
 	
@@ -640,9 +646,6 @@ fieldset {
 		- nav doesn't have animation
 		- hamburger needs to be clickable on mobile 
 	*/
-	nav {
-		padding: 5px;
-	}
 
 	/*	https://www.youtube.com/watch?v=XsvvSRN9DyA -- XO PIXEL 
 		Used as a base for building a semantic nav */
@@ -764,12 +767,12 @@ fieldset {
 		z-index: 1; /* REVIEW */
 		background-image: 
 			linear-gradient(
-				rgba(0, 0, 0, .2),
-				rgba(0, 0, 0, .2)
+				rgba(0, 0, 0, .15),
+				rgba(0, 0, 0, .15)
 			),
 			url(../pic/room.jpg);
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: top;
 		background-size: cover;
 		padding: 4%;
 		display: flex;
@@ -798,6 +801,10 @@ fieldset {
 	#process {
 		grid-template-rows: 1fr 4fr;
 		padding: 0 5% 10% 5%;
+	}
+
+	#process h2 {
+		align-self: center;
 	}
 
 	#process article {
@@ -921,12 +928,21 @@ fieldset {
 	#srv-header {
 		padding: 5%;
 	}	
+
+	#srv-header p {
+		font-size: 100%;
+	}
+
+	#service-main article section {
+		padding: 0 2%;
+	}
 	/* !SECTION: END - SERVICE */
 
 
 	/* SECTION: CONTACT */
 	/* ANCHOR: FORM */
 	#form {
+		grid-template-columns: none;
 		grid-template-rows: 1fr .5fr;
 	}
 
@@ -968,6 +984,10 @@ fieldset {
 @media screen and (min-width: 668px) and (max-width: 1024px) {
 	
 	/* SECTION: TABLET GLOBAL */
+	#header {
+		height: 75px;
+	}
+
 	footer {
 		padding: 20px;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -1017,7 +1037,7 @@ fieldset {
 	
 	/* SECTION: HOME */
 	#home {
-		grid-template-rows: auto 10% repeat(2, auto);
+		grid-template-rows: auto 12% repeat(2, auto);
 		grid-template-areas: 
 		"header"
 		"head-cta"
@@ -1038,7 +1058,7 @@ fieldset {
 			),
 			url(../pic/room.jpg);
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: top;
 		background-size: cover;
 		padding: 4%;
 		display: flex;
@@ -1223,8 +1243,12 @@ fieldset {
 
 	/* ANCHOR: CARDS */
 	#new {
-		width: 50%;
+		width: 55%;
 		justify-self: center;
+	}
+
+	#service-main article section {
+		padding: 0 2%;
 	}
 
 
@@ -1263,6 +1287,11 @@ fieldset {
 @media screen and (min-width: 1025px) {
 	
 	/* SECTION: DESKTOP GLOBAL */
+	body {
+		max-width: 1800px;
+		margin: 0 auto;
+	}
+
 	/* ANCHOR: FOOTER */
 	footer {
 		padding: 20px;
@@ -1305,6 +1334,10 @@ fieldset {
 		margin-top: 30px;
 		font-size: 80%;
 	}
+
+	h2 {
+		font-size: 250%;
+	}
 	/* !SECTION: END - DESKTOP GLOBAL */
 
 
@@ -1344,7 +1377,7 @@ fieldset {
 	}
 
 	#hm-main {
-		grid-template-rows: 1fr 1fr 2.5fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 2.5fr 1fr .75fr;
 		grid-template-areas: 
 		"process"
 		"workers"
@@ -1389,13 +1422,12 @@ fieldset {
 
 	.process-card p, .process-card li {
 		text-align: center;
-		font-size: 60%;
+		font-size: 80%;
 		margin-bottom: 6px;
 	}
 
 	.process-card h4 {
 		text-align: center;
-		font-size: 80%;
 	}
 
 
@@ -1440,14 +1472,22 @@ fieldset {
 		padding: 2%;
 	}
 
+	#hm-workers h3 {
+		font-size: 200%;
+	}
+
+	#hm-workers p {
+		font-size: 150%;
+	}
+
 
 	/* ANCHOR: SERVICE */
 	#hm-service {
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: .75fr 1fr .5fr 1fr;
 		padding: 4%;
-		justify-items: center;
-		align-items: center;
+		/* justify-items: center; */
+		/* align-items: center; */
 		gap: 4%;
 		grid-template-areas:
 		"h2 h2 h2 h2 h2 h2"
@@ -1487,6 +1527,7 @@ fieldset {
 
 	#hm-service h2 {
 		grid-area: h2;
+		font-size: 300%;
 	}
 
 	.srv-img {
@@ -1533,7 +1574,7 @@ fieldset {
 
 	/* ANCHOR HEADING */
 	#srv-header {
-		padding: 0 10%;
+		padding: 0 15%;
 		margin-bottom: 5%;
 	}
 
@@ -1550,6 +1591,10 @@ fieldset {
 		align-self: start;
 	}
 
+	#service-main article {
+		font-size: 125%;
+	}
+
 
 	/* ANCHOR CTA */
 	/* !SECTION: SERVICE - END */
@@ -1557,10 +1602,6 @@ fieldset {
 
 	/* SECTION: CONTACT */
 	/* ANCHOR FORM */
-	#form {
-		grid-template-columns: repeat(2, auto);
-	}
-
 	#form section {
 		padding: 8%;
 	}
@@ -1577,8 +1618,5 @@ fieldset {
 	}
 	/* !SECTION: CONTACT - END */
 } /* !SECTION: DESKTOP - END */
-
-
-
 
 
