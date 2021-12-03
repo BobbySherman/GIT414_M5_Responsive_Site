@@ -1372,6 +1372,10 @@ fieldset {
 		;
 	}
 
+	.head-logo {
+		width: 200px;
+	}
+
 
 	/* ANCHOR: HEAD CTA */
 	#head-cta {
