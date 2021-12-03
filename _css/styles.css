@@ -30,6 +30,7 @@ time, mark, audio, video {
 	box-sizing: border-box;
 	font-family: "Open Sans", Verdana, Geneva, Tahoma, sans-serif;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -37,6 +38,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1.2;
+	background-color: #000;
 }
 ol, ul{
 	list-style: none;
@@ -61,6 +63,10 @@ input, textarea {
 
 
 /* REGION: Global STYLES */
+main {
+	background-color: #fff;
+}
+
 /* SECTION: h GLOBAL */
 h1 {
 	text-align: center;
@@ -111,15 +117,20 @@ p {
 	transform: scale(.9);
 }
 
-/* SECTION: HEADER */
+/* SECTION: HEADER GLOBAL */
+#service #header, #contact #header {
+	background-color: #fff;
+}
+
 #header {
 	grid-area: header;
 	align-items: center;
 	display: flex;
-	/* grid-template-columns: repeat(2, auto); */
 	justify-content: space-between;
 	height: 100px;
 	padding: 1%;
+	position: relative;
+	z-index: 1;
 }
 
 #header-container {
@@ -145,10 +156,33 @@ p {
 }
 
 .head-nbr {
-	/* display: block; */
-	/* padding-left: 1.25%; */
 	text-align: center;
 	width: 155px;
+}
+
+
+/* SECTION: HEAD CTA GLOBAL */
+#head-cta {
+	grid-area: 1 / 1 / 3 / 2;
+	background-image: 
+		linear-gradient(
+			rgba(0, 0, 0, .15),
+			rgba(0, 0, 0, .15)
+		),
+		url(../pic/room.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	padding: 4%;
+	display: flex;
+	align-items: flex-end;
+	position: relative;
+	z-index: 0;
+}
+
+.head-p {
+	color: var(--white);
+	font-weight: var(--med);
 }
 
 
@@ -266,7 +300,7 @@ footer section {
 	text-align: center;
 	align-self: end;
 } 
-/* !SECTION END - footer GLOBAL */
+/* !REGION END - footer GLOBAL */
 
 
 /* REGION: HOME GLOBAL */
@@ -377,7 +411,7 @@ footer section {
 	background-image: url(../pic/handshake.jpg);
 
 }
-/* !REGION: END - HOME GLOBAL */
+/* !REGION END - HOME GLOBAL */
 
 
 /* REGION: SERVICE GLOBAL */
@@ -596,7 +630,6 @@ legend {
 #social a {
 	justify-items: center;
 }
-
 /* !REGION: END - CONTACT GLOBAL */
 
 
@@ -657,12 +690,6 @@ legend {
 
 	
 	/* SECTION: Nav */
-	/* FIXME: Nav
-		- nav doesn't display well on home screen
-		- nav doesn't have animation
-		- hamburger needs to be clickable on mobile 
-	*/
-
 	/*	https://www.youtube.com/watch?v=XsvvSRN9DyA -- XO PIXEL 
 		Used as a base for building a semantic nav */
 	#menu-icon {
@@ -776,7 +803,6 @@ legend {
 
 
 	/* REGION: HOME */
-	/* NOTE: Grid <body> */
 	#home {
 		grid-template-rows: auto .25fr 4fr .01fr;
 		grid-template-areas: 
@@ -809,7 +835,6 @@ legend {
 		font-weight: var(--med);
 	}
 
-	/* NOTE: Grid <main> */
 	#hm-main {
 		grid-template-rows: .5fr .5fr 2fr 1fr .25fr;
 		grid-template-areas: 
@@ -927,9 +952,6 @@ legend {
 		row-gap: 5%;
 		padding: 8%;
 	}
-
-	
-	/* SECTION: CTA */
 	/* !REGION: END - HOME */
 
 	
@@ -981,9 +1003,6 @@ legend {
 
 
 	/* SECTION: INFO CARDS */
-	/* FIXME
-		- seem too small
-	*/
 	#contact-info {
 		padding: 3%;
 		gap: 3%;
@@ -1031,16 +1050,12 @@ legend {
 	}
 
 	.ig {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 40px;
 		height: 40px;
 		margin-left: 10px;
 	}
 
 	.fb {
-		/* object-fit: cover; */ /* modified */
-		/* object-position: 0 0; */
 		width: 20px;
 		height: 39.5px;
 	}
@@ -1060,6 +1075,7 @@ legend {
 	}
 	/* !REGION: END - TABLET GLOBAL */
 	
+
 	/* REGION: HOME */
 	#home {
 		grid-template-rows: .8fr .2fr 5fr .01fr;
@@ -1073,7 +1089,7 @@ legend {
 
 
 	/* SECTION: HEAD CTA */
-	#head-cta {
+	/* #head-cta {
 		grid-area: 1 / 1 / 3 / 2;
 		background-image: 
 			linear-gradient(
@@ -1087,12 +1103,7 @@ legend {
 		padding: 4%;
 		display: flex;
 		align-items: flex-end;
-	}
-
-	.head-p {
-		color: var(--white);
-		font-weight: var(--med);
-	}
+	} */
 
 	#hm-main {
 		grid-template-rows: .75fr repeat(2, auto) 2fr 1fr;
@@ -1221,7 +1232,6 @@ legend {
 
 
 	/* SECTION: REVIEWS */
-	/* FIXME ADJUST GLOBAL STYLES */
 	#reviews {
 		gap: 4%;
 		grid-template-rows: .25fr repeat(2, 1fr);
@@ -1274,14 +1284,11 @@ legend {
 	#service-main article section {
 		padding: 0 2%;
 	}
-
-
-	/* SECTION: CTA */
 	/* !REGION: SERVICE - END */
 
 
 	/* REGION: CONTACT */
-	/* ANCHOR FORM */
+	/* SECTION FORM */
 	#form {
 		grid-template-columns: repeat(2, auto);
 	}
@@ -1290,7 +1297,7 @@ legend {
 		padding: 8%;
 	}
 
-	/* ANCHOR INFO CARDS */
+	/* SECTION INFO CARDS */
 	#contact-info {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: .8fr .2fr;
@@ -1367,7 +1374,7 @@ legend {
 
 	/* REGION: HOME */
 	#home {
-		grid-template-rows: .9fr .1fr 6fr .01fr;
+		grid-template-rows: .9fr .3fr 6fr .01fr;
 		grid-template-areas: 
 		"header"
 		"head-cta"
@@ -1378,32 +1385,6 @@ legend {
 
 	.head-logo {
 		width: 200px;
-	}
-
-
-	/* SECTION: HEAD CTA */
-	#head-cta {
-		grid-area: 1 / 1 / 3 / 2;
-		position: relative;
-		background-image: 
-			linear-gradient(
-				rgba(0, 0, 0, .2),
-				rgba(0, 0, 0, .2)
-			),
-			url(../pic/room.jpg);
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-		padding: 4%;
-		display: flex;
-		align-items: flex-end;
-		min-height: 600px;
-		/* z-index: 0; */
-	}
-
-	.head-p {
-		color: var(--white);
-		font-weight: var(--med);
 	}
 
 	#hm-main {
@@ -1516,8 +1497,6 @@ legend {
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: .75fr 1fr .5fr 1fr;
 		padding: 4%;
-		/* justify-items: center; */
-		/* align-items: center; */
 		gap: 4%;
 		grid-template-areas:
 		"h2 h2 h2 h2 h2 h2"
@@ -1580,7 +1559,6 @@ legend {
 	.review-p {
 		padding: 5%;
 	}
-	/* SECTION: CTA */
 	/* !REGION: HOME - END */
 
 
@@ -1602,14 +1580,14 @@ legend {
 	}
 
 
-	/* ANCHOR HEADING */
+	/* SECTION HEADING */
 	#srv-header {
 		padding: 0 15%;
 		margin-bottom: 5%;
 	}
 
 
-	/* ANCHOR CARDS */
+	/* SECTION CARDS */
 	#service-main article {
 		display: grid;
 		column-gap: 5%;
@@ -1624,19 +1602,16 @@ legend {
 	#service-main article {
 		font-size: 125%;
 	}
-
-
-	/* ANCHOR CTA */
 	/* !REGION: SERVICE - END */
 
 
 	/* REGION: CONTACT */
-	/* ANCHOR FORM */
+	/* SECTION FORM */
 	#form section {
 		padding: 8%;
 	}
 
-	/* ANCHOR INFO CARDS */
+	/* SECTION INFO CARDS */
 	#contact-info {
 		grid-template-columns: repeat(4, 1fr);
 		grid-template-rows: .8fr .2fr;
