@@ -1087,24 +1087,6 @@ legend {
 		;
 	}
 
-
-	/* SECTION: HEAD CTA */
-	/* #head-cta {
-		grid-area: 1 / 1 / 3 / 2;
-		background-image: 
-			linear-gradient(
-				rgba(0, 0, 0, .2),
-				rgba(0, 0, 0, .2)
-			),
-			url(../pic/room.jpg);
-		background-repeat: no-repeat;
-		background-position: top;
-		background-size: cover;
-		padding: 4%;
-		display: flex;
-		align-items: flex-end;
-	} */
-
 	#hm-main {
 		grid-template-rows: .75fr repeat(2, auto) 2fr 1fr;
 		grid-template-areas: 
