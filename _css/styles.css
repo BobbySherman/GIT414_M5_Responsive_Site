@@ -836,7 +836,7 @@ legend {
 	}
 
 	#hm-main {
-		grid-template-rows: .5fr .5fr 2fr 1fr .25fr;
+		grid-template-rows: .5fr .5fr 2.75fr 1fr .4fr;
 		grid-template-areas: 
 		"process"
 		"workers"
