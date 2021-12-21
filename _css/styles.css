@@ -249,6 +249,10 @@ p {
 	font-weight: var(--smi);
 }
 
+.cta-num:hover {
+	color: var(--hvrBlue);
+	font-weight: var(--bld);
+}
 
 /* SECTION: main GLOBAL */
 main {
@@ -266,6 +270,10 @@ footer {
 
 footer p, footer a {
 	color: var(--white);
+}
+
+footer a:hover {
+	color: var(--blue);
 }
 
 footer > img {
@@ -289,6 +297,16 @@ footer ul {
 .fb {
 	object-fit: cover; /* modified */
 	object-position: 0 0;
+}
+
+.ig:hover {
+	object-fit: cover; /* modified */
+	object-position: 0 100%;
+}
+
+.fb:hover {
+	object-fit: cover; /* modified */
+	object-position: 0% 100%;
 }
 
 footer address {
