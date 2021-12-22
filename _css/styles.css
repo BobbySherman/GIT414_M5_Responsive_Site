@@ -710,7 +710,19 @@ legend {
 	/* SECTION: Nav */
 	/*	https://www.youtube.com/watch?v=XsvvSRN9DyA -- XO PIXEL 
 		Used as a base for building a semantic nav */
-	#menu-icon {
+	/* #menu-icon {
+		background-image: url(../icon/menu_sprite.svg);
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: cover;
+		display: block;
+		height: 40px;
+		width: 40px;
+		position: relative;
+		z-index: 5;
+	} */
+
+	#menu-icon-close {
 		background-image: url(../icon/menu_sprite.svg);
 		background-repeat: no-repeat;
 		background-position: 0 0;
